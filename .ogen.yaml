@@ -1,0 +1,10 @@
+generator:
+  content_type_aliases:
+    application/problem+json: application/json
+  features:
+    disable:
+      - "paths/server"
+      - "webhooks/server"
+      - "server/response/validation"
+      - "ogen/otel"
+      - "ogen/unimplemented"
