@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestHead200Happy(t *testing.T) {
+func TestHead200(t *testing.T) {
 	go func() {
 		panic(http.ListenAndServe(":8080", NewServeMux()))
 	}()
@@ -25,7 +25,7 @@ func TestHead200Happy(t *testing.T) {
 	require.Equal(t, client.OptString{Value: "Tue, 22 Apr 2025 19:01:37 GMT", Set: true}, resp.LastModified)
 }
 
-func TestHead404Panic(t *testing.T) {
+func TestHead404(t *testing.T) {
 	go func() {
 		panic(http.ListenAndServe(":8080", NewServeMux()))
 	}()
