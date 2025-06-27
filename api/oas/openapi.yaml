@@ -69,8 +69,8 @@ paths:
             example: 1.txt
             type: string
       responses:
-        "204":
-          description: No Content
+        "200":
+          description: OK
           headers:
             Accept-Ranges:
               schema:
