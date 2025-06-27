@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestHead204Happy(t *testing.T) {
+func TestHead200Happy(t *testing.T) {
 	go func() {
 		panic(http.ListenAndServe(":8080", NewServeMux()))
 	}()
