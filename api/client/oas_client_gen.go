@@ -26,7 +26,7 @@ type Invoker interface {
 	// Head files by file.
 	//
 	// HEAD /files/{file}
-	HeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (*HeadFilesByFileNoContent, error)
+	HeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (*HeadFilesByFileOK, error)
 }
 
 // Client implements OAS client.
@@ -73,12 +73,12 @@ func (c *Client) requestURL(ctx context.Context) *url.URL {
 // Head files by file.
 //
 // HEAD /files/{file}
-func (c *Client) HeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (*HeadFilesByFileNoContent, error) {
+func (c *Client) HeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (*HeadFilesByFileOK, error) {
 	res, err := c.sendHeadFilesByFile(ctx, params)
 	return res, err
 }
 
-func (c *Client) sendHeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (res *HeadFilesByFileNoContent, err error) {
+func (c *Client) sendHeadFilesByFile(ctx context.Context, params HeadFilesByFileParams) (res *HeadFilesByFileOK, err error) {
 
 	u := uri.Clone(c.requestURL(ctx))
 	var pathParts [2]string

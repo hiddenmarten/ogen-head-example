@@ -168,40 +168,40 @@ func (s *ErrorModelStatusCode) SetResponse(val ErrorModel) {
 	s.Response = val
 }
 
-// HeadFilesByFileNoContent is response for HeadFilesByFile operation.
-type HeadFilesByFileNoContent struct {
+// HeadFilesByFileOK is response for HeadFilesByFile operation.
+type HeadFilesByFileOK struct {
 	AcceptRanges  OptString
 	ContentLength OptString
 	LastModified  OptString
 }
 
 // GetAcceptRanges returns the value of AcceptRanges.
-func (s *HeadFilesByFileNoContent) GetAcceptRanges() OptString {
+func (s *HeadFilesByFileOK) GetAcceptRanges() OptString {
 	return s.AcceptRanges
 }
 
 // GetContentLength returns the value of ContentLength.
-func (s *HeadFilesByFileNoContent) GetContentLength() OptString {
+func (s *HeadFilesByFileOK) GetContentLength() OptString {
 	return s.ContentLength
 }
 
 // GetLastModified returns the value of LastModified.
-func (s *HeadFilesByFileNoContent) GetLastModified() OptString {
+func (s *HeadFilesByFileOK) GetLastModified() OptString {
 	return s.LastModified
 }
 
 // SetAcceptRanges sets the value of AcceptRanges.
-func (s *HeadFilesByFileNoContent) SetAcceptRanges(val OptString) {
+func (s *HeadFilesByFileOK) SetAcceptRanges(val OptString) {
 	s.AcceptRanges = val
 }
 
 // SetContentLength sets the value of ContentLength.
-func (s *HeadFilesByFileNoContent) SetContentLength(val OptString) {
+func (s *HeadFilesByFileOK) SetContentLength(val OptString) {
 	s.ContentLength = val
 }
 
 // SetLastModified sets the value of LastModified.
-func (s *HeadFilesByFileNoContent) SetLastModified(val OptString) {
+func (s *HeadFilesByFileOK) SetLastModified(val OptString) {
 	s.LastModified = val
 }
 

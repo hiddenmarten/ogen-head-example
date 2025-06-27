@@ -16,11 +16,11 @@ import (
 	"github.com/ogen-go/ogen/validate"
 )
 
-func decodeHeadFilesByFileResponse(resp *http.Response) (res *HeadFilesByFileNoContent, _ error) {
+func decodeHeadFilesByFileResponse(resp *http.Response) (res *HeadFilesByFileOK, _ error) {
 	switch resp.StatusCode {
-	case 204:
-		// Code 204.
-		var wrapper HeadFilesByFileNoContent
+	case 200:
+		// Code 200.
+		var wrapper HeadFilesByFileOK
 		h := uri.NewHeaderDecoder(resp.Header)
 		// Parse "Accept-Ranges" header.
 		{
