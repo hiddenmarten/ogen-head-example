@@ -150,6 +150,12 @@ func decodeHeadFilesByFileResponse(resp *http.Response) (res *HeadFilesByFileOK,
 			d := jx.DecodeBytes(buf)
 
 			var response ErrorModel
+			if resp.Request.Method == http.MethodHead && len(buf) == 0 {
+				return &ErrorModelStatusCode{
+					StatusCode: resp.StatusCode,
+					Response:   response,
+				}, nil
+			}
 			if err := func() error {
 				if err := response.Decode(d); err != nil {
 					return err

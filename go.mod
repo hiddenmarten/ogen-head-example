@@ -36,3 +36,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/ogen-go/ogen => github.com/hiddenmarten/ogen v0.0.0-20250627185412-1074999886d1

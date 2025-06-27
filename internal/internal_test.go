@@ -2,6 +2,7 @@ package internal
 
 import (
 	"context"
+	"errors"
 	"github.com/hiddenmarten/ogen-head-example/api/client"
 	"net/http"
 	"testing"
@@ -31,14 +32,15 @@ func TestHead404(t *testing.T) {
 	}()
 	c, err := client.NewClient("http://localhost:8080")
 	require.NoError(t, err)
-	resp, err := c.HeadFilesByFile(context.Background(), client.HeadFilesByFileParams{
+	_, err = c.HeadFilesByFile(context.Background(), client.HeadFilesByFileParams{
 		File: "2.txt",
 	})
 
-	// ATTENTION!!!
-	// ogen can't decode a response with an empty body from a head request
-	// despite having no fields being required in "#/components/schemas/ErrorModel".
-	// error: decode ErrorModel: "{" expected
-	require.NoError(t, err)
-	require.NotNil(t, resp)
+	var errorModel *client.ErrorModelStatusCode
+	ok := errors.As(errors.Unwrap(errors.Unwrap(err)), &errorModel)
+	if !ok {
+		t.Errorf("expected UnsuccessfulResponse, got %T: %v", err, err)
+		return
+	}
+	require.Equal(t, errorModel.StatusCode, http.StatusNotFound)
 }
